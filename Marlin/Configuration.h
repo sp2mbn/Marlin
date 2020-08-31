@@ -773,7 +773,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 30, 45 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 30, 60 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -827,7 +827,7 @@
   #endif
 #endif
 
-#define DEFAULT_EJERK    8.0  // May be used by Linear Advance
+#define DEFAULT_EJERK    5.0  // May be used by Linear Advance
 
 /**
  * Junction Deviation Factor
@@ -850,7 +850,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-//#define S_CURVE_ACCELERATION
+#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -2279,10 +2279,10 @@
 
   //#define TOUCH_SCREEN_CALIBRATION
 
-  #define XPT2046_X_CALIBRATION 12316
-  #define XPT2046_Y_CALIBRATION -8981
-  #define XPT2046_X_OFFSET        -43
-  #define XPT2046_Y_OFFSET        257
+  //#define XPT2046_X_CALIBRATION 12316
+  //#define XPT2046_Y_CALIBRATION -8981
+  //#define XPT2046_X_OFFSET        -43
+  //#define XPT2046_Y_OFFSET        257
 #endif
 
 //
@@ -2300,7 +2300,7 @@
 
 // Set number of user-controlled fans. Disable to use all board-defined fans.
 // :[1,2,3,4,5,6,7,8]
-//#define NUM_M106_FANS 1
+#define NUM_M106_FANS 1
 
 // Increase the FAN PWM frequency. Removes the PWM noise but increases heating in the FET/Arduino
 //#define FAST_PWM_FAN

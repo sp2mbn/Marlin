@@ -486,34 +486,17 @@
   //#define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
-
-  // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
-
-  // Ultimaker
-  //#define DEFAULT_Kp 22.2
-  //#define DEFAULT_Ki 1.08
-  //#define DEFAULT_Kd 114
-
-  // MakerGear
-  //#define DEFAULT_Kp 7.0
-  //#define DEFAULT_Ki 0.1
-  //#define DEFAULT_Kd 12
-
-  // Mendel Parts V9 on 12V
-  //#define DEFAULT_Kp 63.0
-  //#define DEFAULT_Ki 2.25
-  //#define DEFAULT_Kd 440
-
-  // Sapphire Pro stock hotend AutoTuned
-  //#define DEFAULT_Kp 18
-  //#define DEFAULT_Ki 1.3
-  //#define DEFAULT_Kd 61
-
-  // Sapphire Pro E3D V6 + Copper heatblock & nozzle with PT100 manually tuned
-  #define DEFAULT_Kp 25
-  #define DEFAULT_Ki 2
-  #define DEFAULT_Kd 200
-
+  #if ENABLED(PID_PARAMS_PER_HOTEND)
+    // Specify between 1 and HOTENDS values per array.
+    // If fewer than EXTRUDER values are provided, the last element will be repeated.
+    #define DEFAULT_Kp_LIST {  22.20,  20.0 }
+    #define DEFAULT_Ki_LIST {   1.08,   1.0 }
+    #define DEFAULT_Kd_LIST { 114.00, 112.0 }
+  #else
+    #define DEFAULT_Kp  25
+    #define DEFAULT_Ki   2
+    #define DEFAULT_Kd  200
+  #endif
 #endif // PIDTEMP
 
 //===========================================================================
@@ -1012,7 +995,6 @@
  *     | 4         | T <-- Example "4" ( left-, front-)
  *     |    [-]    |
  *     O-- FRONT --+
-
  */
 #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
 
@@ -1771,7 +1753,7 @@
  *
  * Use CRC checks and retries on the SD communication.
  */
-#define SD_CHECK_AND_RETRY
+//#define SD_CHECK_AND_RETRY
 
 /**
  * LCD Menu Items
@@ -2222,6 +2204,7 @@
 //=============================================================================
 //=============================== Graphical TFTs ==============================
 //=============================================================================
+
 //
 // TFT display with optional touch screen
 // Color Marlin UI with standard menu system
@@ -2265,7 +2248,6 @@
 //=============================================================================
 
 //
-
 // Ender-3 v2 OEM display. A DWIN display with Rotary Encoder.
 //
 //#define DWIN_CREALITY_LCD

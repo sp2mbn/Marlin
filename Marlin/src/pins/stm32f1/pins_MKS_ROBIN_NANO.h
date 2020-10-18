@@ -156,6 +156,8 @@
   // Software serial
   //
 
+  #define TMC_BAUD_RATE 19200
+
   #ifndef X_SERIAL_TX_PIN
     #define X_SERIAL_TX_PIN  PA6 //E1_STEP_PIN
   #endif

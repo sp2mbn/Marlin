@@ -107,7 +107,8 @@
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
- * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
+ * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
+ * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
 #define SERIAL_PORT_2 1
 
@@ -334,6 +335,9 @@
   //#define PSU_DEFAULT_OFF         // Keep power off until enabled directly with M80
   //#define PSU_POWERUP_DELAY 250   // (ms) Delay for the PSU to warm up to full power
 
+  //#define PSU_POWERUP_GCODE  "M355 S1"  // G-code to run after power-on (e.g., case light on)
+  //#define PSU_POWEROFF_GCODE "M355 S0"  // G-code to run before power-off (e.g., case light off)
+
   //#define AUTO_POWER_CONTROL      // Enable automatic control of the PS_ON pin
   #if ENABLED(AUTO_POWER_CONTROL)
     #define AUTO_POWER_FANS         // Turn on PSU if fans need power
@@ -345,8 +349,6 @@
     #define POWER_TIMEOUT 30
   #endif
 #endif
-
-// @section temperature
 
 //===========================================================================
 //============================= Thermal Settings ============================
@@ -546,16 +548,7 @@
   //#define DEFAULT_bedKi .023
   //#define DEFAULT_bedKd 305.4
 
-  //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-  //from pidautotune
-  //#define DEFAULT_bedKp 97.1
-  //#define DEFAULT_bedKi 1.41
-  //#define DEFAULT_bedKd 1675.16
 
-  // SapphirePro 24V Heater AutoTuned @ S80 C8
-  //#define DEFAULT_bedKp 68.67
-  //#define DEFAULT_bedKi 13.18
-  //#define DEFAULT_bedKd 238.58
 
   // SapphirePro 500W Keenovo SSR
   #define DEFAULT_bedKp 95

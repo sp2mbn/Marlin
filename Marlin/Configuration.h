@@ -589,7 +589,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 670
+#define EXTRUDE_MAXLENGTH 230
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -758,7 +758,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 397.50 } // Calibrated stock extruder - 402 (Hemera stock 409, 392.40 - after calibration)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 400, 392.40 } // Calibrated stock extruder - 402 (Hemera stock 409, 392.40 - after calibration)
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -794,7 +794,7 @@
  *   M204 T    Travel Acceleration
  */
 #define DEFAULT_ACCELERATION          2500    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  1750    // E acceleration for retracts
+#define DEFAULT_RETRACT_ACCELERATION  2500    // E acceleration for retracts
 #define DEFAULT_TRAVEL_ACCELERATION   2500    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
